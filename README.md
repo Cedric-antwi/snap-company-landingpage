@@ -37,7 +37,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://snap-landing-page-lilac.vercel.app/)
+- Live Site URL: [Click Here](https://snap-landing-page-lilac.vercel.app/)
 
 ## My process
 - Started off following a mobile-first development workflow, styling and organising html accordingly
