@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+  <style>
+    /*default styling for mobile*/
+    .attribution { font-size: 11px; text-align: center; margin-bottom: 1rem}
+    .attribution a { color: hsl(228, 45%, 44%); }
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      background-color: hsl(0, 0%, 98%);
+      z-index: 1;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 15px;
+    }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .desktop-hero {
+      display: none;
+    }
+    h1 {
+      font-family: 'Epilogue', sans-serif, 'Inter', sans-serif;
+      text-align: center;
+      width: 100vw;
+      padding: 20px 0;
+    }
+    p{
+      font-family: 'Epilogue', sans-serif, 'Inter', sans-serif;
+      color: hsl(0, 0%, 41%);
+      text-align: center;
+      padding: 0 10px;
+      line-height: 25px;
+    }
+    .learn-more {
+      font-family: 'Epilogue', sans-serif, 'Inter', sans-serif;
+      display: block;
+      width: fit-content;
+      margin: 20px auto;
+      text-align: center;
+      padding: 15px 20px;
+      color: hsl(0, 0%, 98%);
+      background-color: hsl(0, 0%, 8%);
+      border-radius: 13px;
+      text-decoration: none;
+    }
+    .company-row {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 7px;
+      margin: 35px 0;
+
+    }
+    .company-row img {
+      object-fit: scale-down;
+    }
+
+  /*SIDEBAR COMPONENT [MOBILE]*/
+    .navbar {
+      display: none;
+    }
+    .side-bar {
+      font-family: 'Epilogue', sans-serif, 'Inter', sans-serif;
+      background-color: hsl(0, 0%, 98%);
+      color: hsl(0, 0%, 41%);
+      position: absolute;
+      height: 46.9rem;
+      width: 60%;
+      top: 0;
+      right: 0;
+      flex-direction: column;
+      display: none;
+      z-index: 3;
+    }
+    #close-menu-btn {
+      padding: 1.2rem;
+      height: 2rem;
+      width: 2rem;
+      align-self: end;
+    }
+    h4 {
+      padding: 0.5rem 1rem;
+      font-weight: normal;
+    }
+    .side-bar-links {
+      align-content: center;
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+    }
+    .register {
+      margin-top: 1rem;
+      border: 2px solid hsl(0, 0%, 41%);
+      border-radius: 15px;
+      padding: 0.6rem 3rem;
+    }
+    .bck-ground {
+      width: 425px;
+      height: 46.9rem;
+      position: absolute;
+      background-color: black;
+      z-index: 2;
+    }
+    .dropdown-arrow {
+      position: relative;
+      object-fit: scale-down;
+      padding: 0;
+      margin-left: 0.8rem;
+      margin-bottom: 0.1rem;
+    }
+    .side-bar-dropdown {
+      display: flex;
+    }
+    .features-dropdown {
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1.2rem 0 2rem 2.5rem;
+    }
+    .features-dropdown h4 {
+      display: inline;
+    }
+    .company-dropdown {
+      display: none;
+      margin: 0.2rem 0 1rem 1.5rem;
+    }
+    .desktop-flex{}
+
+    @media only screen and (min-width: 768px) {
+      html {
+        width: 87%;
+        overflow-x: hidden;
+      }
+      h1 {
+        width: 87vw;
+      }
+      .hero img {
+        width: 100%;
+        height: 17rem;
+        object-fit: contain;
+      }
+      .side-bar {
+        width: 46%;
+      }
+    }
+    @media only screen and (min-width: 1024px) {
+      html {
+        width: 100%;
+        height: 100%;
+      }
+      nav {
+        display: flex;
+        padding: 20px 15px;
+        margin-bottom: 2rem;
+        justify-content: normal;
+      }
+      .navbar {
+        font-family: 'Epilogue', sans-serif, 'Inter', sans-serif;
+        display: flex;
+        margin: 0 auto;
+        width: 100%;
+        color: hsl(0, 0%, 41%);
+        z-index: 3;
+      }
+      .side-bar {
+        display: none;
+      }
+      .desktop-body-text {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        text-align: unset;
+        align-content: flex-start;
+        width: 500px;
+        height: 30rem;
+        padding: 2rem 3rem 4rem;
+      }
+
+      h1 {
+        width: inherit;
+        font-size: 4rem;
+        margin-bottom: 2rem;
+        text-align: start;
+      }
+      p{
+        font-family: 'Epilogue', sans-serif, 'Inter', sans-serif;
+        color: hsl(0, 0%, 41%);
+        text-align: start;
+        line-height: 25px;
+        margin-bottom: 1.5rem;
+      }
+      .learn-more {
+        font-family: 'Epilogue', sans-serif, 'Inter', sans-serif;
+        display: block;
+        padding: 15px 20px;
+        color: hsl(0, 0%, 98%);
+        background-color: hsl(0, 0%, 8%);
+        border-radius: 13px;
+        text-decoration: none;
+        border: 1px solid hsl(0, 0%, 8%);
+      }
+      .learn-more:hover {
+        background-color: hsl(0, 0%, 98%);
+        color: hsl(0, 0%, 8%);
+        border: 1px solid hsl(0, 0%, 8%);
+      }
+      .hero img {
+        height: 30rem;
+        width: 27.625rem;
+        object-fit: contain;
+      }
+      .register {
+        margin-top: 0;
+        border: 2px solid hsl(0, 0%, 41%);
+        border-radius: 15px;
+        padding: 0.6rem 3rem;
+      }
+      .features-dropdown {
+        display: none;
+        flex-direction: row;
+        gap: 1rem;
+        margin: 0;
+      }
+      h4, .align-right a:hover {
+        color: black;
+      }
+      .dropdown-arrow {
+        position: relative;
+        object-fit: scale-down;
+        padding: 0;
+        margin-left: 0.5rem;
+        margin-bottom: 0.1rem;
+      }
+      .align-right {
+        position: relative;
+        margin-left: auto;
+        margin-top: 0.5rem;
+      }
+      .align-right a {
+        margin-right: 1rem;
+        cursor: pointer;
+      }
+      .desktop-flex{
+        display: flex;
+        flex-direction: row-reverse;
+        padding: 0 2rem;
+        /*Below width for screens wider than 1024px*/
+        /*width: 87vw;*/
+      }
+      /*GROUP THE DISPLAY NONES*/
+      .open-menu-btn {
+        display: none;
+      }
+      .mobile-hero {
+        display: none;
+      }
+      .desktop-hero {
+        display: block;
+      }
+    }
+    @media only screen and (min-width: 1025px) {
+      .desktop-flex{
+        display: flex;
+        flex-direction: row-reverse;
+        width: 100%;
+        padding: 10rem 0 5rem;
+        justify-content: center;
+        scale: 1.4;
+      }
+      .features-dropdown {
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        margin: 0;
+        padding: 15px;
+        background: white;
+        top: 4rem;
+        border-radius: 8px;
+        box-shadow: 0 6px 18px 4px lightgray;
+      }
+      .company-dropdown {
+        display: none;
+        margin: 0.2rem 0 1rem 1.5rem;
+        position: absolute;
+        flex-direction: column;
+        padding: 10px;
+        background: white;
+        top: 4rem;
+        left: 15rem;
+        border-radius: 8px;
+        box-shadow: 0 6px 18px 4px lightgray;
+      }
+      h4, .align-right a:hover {
+        color: black;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<div hidden class="bck-ground" id="bck-ground"></div>
+
+<main id="main-body">
+<nav>
+  <img src="images/logo.svg" style="margin-right: 3rem">
+  <img src="images/icon-menu.svg" class="open-menu-btn" id="open-menu-btn">
+<!--  NAVBAR STYLING FOR DESKTOP-->
+  <div class="navbar">
+      <div class="navbar-dropdown">
+        <h4>Features<img src="images/icon-arrow-down.svg" class="dropdown-arrow" id="feature-arrow-desktop"></h4>
+      </div>
+      <div class="features-dropdown" id="desktop-features-dropdown">
+        <div><img src="images/icon-todo.svg"/><h4>Todo List</h4></div>
+        <div><img src="images/icon-calendar.svg"/><h4>Calendar</h4></div>
+        <div><img src="images/icon-reminders.svg"/><h4>Reminders</h4></div>
+        <div><img src="images/icon-planning.svg"/><h4>Planning</h4></div>
+      </div>
+      <div class="navbar-dropdown">
+        <h4>Company<img src="images/icon-arrow-down.svg" class="dropdown-arrow" id="company-arrow-desktop"></h4>
+      </div>
+      <div class="company-dropdown" id="desktop-company-dropdown">
+        <h4>History</h4>
+        <h4>Our Team</h4>
+        <h4>Blog</h4>
+      </div>
+      <h4>Careers</h4>
+      <h4>About</h4>
+      <div class="align-right">
+        <a>Login</a>
+        <a class="register">Register</a>
+      </div>
+    </div>
+</nav>
+<div class="desktop-flex">
+  <div class="hero">
+    <img src="images/image-hero-mobile.png" class="mobile-hero">
+    <img src="images/image-hero-desktop.png" class="desktop-hero">
+  </div>
+  <div class="desktop-body-text">
+    <div class="title">
+      <h1>Make remote work</h1>
+    </div>
+
+    <p>Get your team in sync, no matter your location. Streamline processes,
+      create team rituals, and watch productivity soar.</p>
+
+    <a href="#" class="learn-more">Learn more</a>
+
+    <div class="company-row">
+      <img src="images/client-databiz.svg" width="60px">
+      <img src="images/client-audiophile.svg" width="60px" height="20px">
+      <img src="images/client-meet.svg" width="60px">
+      <img src="images/client-maker.svg" width="60px">
+    </div>
+  </div>
+</div>
+</main>
+
+<div class="side-bar" id="side-bar">
+  <img src="images/icon-close-menu.svg" id="close-menu-btn">
+  <div class="side-bar-dropdown">
+    <h4>Features<img src="images/icon-arrow-down.svg" class="dropdown-arrow" id="feature-arrow"></h4>
+  </div>
+  <div class="features-dropdown" id="features-dropdown">
+    <div><img src="images/icon-todo.svg"/><h4>Todo List</h4></div>
+    <div><img src="images/icon-calendar.svg"/><h4>Calendar</h4></div>
+    <div><img src="images/icon-reminders.svg"/><h4>Reminders</h4></div>
+    <div><img src="images/icon-planning.svg"/><h4>Planning</h4></div>
+  </div>
+  <div class="side-bar-dropdown">
+    <h4>Company<img src="images/icon-arrow-down.svg" class="dropdown-arrow" id="company-arrow"></h4>
+  </div>
+  <div class="company-dropdown" id="company-dropdown">
+    <h4>History</h4>
+    <h4>Our Team</h4>
+    <h4>Blog</h4>
+  </div>
+  <h4>Careers</h4>
+  <h4>About</h4>
+
+  <div class="side-bar-links">
+    <a>Login</a>
+    <a class="register">Register</a>
+  </div>
+</div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Cedric Antwi</a>.
+  </div>
+<script>
+  const openMenu = document.getElementById("side-bar")
+  const openMenuBtn = document.getElementById("open-menu-btn")
+  const closeMenuBtn = document.getElementById("close-menu-btn")
+  const mainBody = document.getElementById("main-body")
+  const background = document.getElementById("bck-ground")
+
+  const featureDropdwnMenu = document.getElementById("features-dropdown")
+  const featureDropdwnBtn = document.getElementById("feature-arrow")
+  const companyDropdwnMenu = document.getElementById("company-dropdown")
+  const companyDropdwnBtn = document.getElementById("company-arrow")
+
+  const featureDropdownDeskBtn = document.getElementById("feature-arrow-desktop")
+  const featureDropdwnDeskMenu = document.getElementById("desktop-features-dropdown")
+  const companyDropdownDeskBtn = document.getElementById("company-arrow-desktop")
+  const companyDropdwnDeskMenu = document.getElementById("desktop-company-dropdown")
+
+
+
+  openMenuBtn.addEventListener('click',  () => {
+    openMenu.style.display = "flex"
+    background.hidden = false
+    background.style.filter = "opacity(65%)"
+  })
+
+  closeMenuBtn.addEventListener('click',  () => {
+    background.hidden = true
+    openMenu.style.display = "none"
+    mainBody.style.filter = "opacity(100%)"
+  })
+
+  featureDropdwnBtn.addEventListener('click',  () => {
+    if (featureDropdwnMenu.style.display === "none"){
+      featureDropdwnMenu.style.display = "flex"
+    } else {
+      featureDropdwnMenu.style.display = "none"
+    }
+  })
+  featureDropdownDeskBtn.addEventListener('click',  () => {
+    if (featureDropdwnDeskMenu.style.display === "none"){
+      featureDropdwnDeskMenu.style.display = "flex"
+    } else {
+      featureDropdwnDeskMenu.style.display = "none"
+    }
+  })
+
+  companyDropdwnBtn.addEventListener('click',  () => {
+    if (companyDropdwnMenu.style.display === "none"){
+      companyDropdwnMenu.style.display = "block"
+    } else {
+      companyDropdwnMenu.style.display = "none"
+    }
+  })
+  companyDropdownDeskBtn.addEventListener('click',  () => {
+    if (companyDropdwnDeskMenu.style.display === "none"){
+      companyDropdwnDeskMenu.style.display = "block"
+    } else {
+      companyDropdwnDeskMenu.style.display = "none"
+    }
+  })
+</script>
+</body>
+</html>
